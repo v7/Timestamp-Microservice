@@ -2,11 +2,10 @@ var express = require('express')
 var moment = require('moment');
 moment().format();
 var app = express()
-app.set('view engine','ejs')
-
+app.set('view engine', 'ejs');
 app.get('/',function(req,res){
 
-  res.render('index')
+  res.render('index.ejs')
 
 })
 
@@ -35,13 +34,8 @@ app.get('/:time',function(req,res){
 
 
 
-app.listen(3000,function(err){
+app.listen( process.env.PORT || 3000,function(){
 
-  if(err){
-
-    throw err
-  }else{
     console.log("server up")
-  }
 
 })
